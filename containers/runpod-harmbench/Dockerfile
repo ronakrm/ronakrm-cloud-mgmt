@@ -2,6 +2,9 @@ FROM runpod/pytorch:2.1.0-py3.10-cuda11.8.0-devel-ubuntu22.04
 
 RUN apt-get update \
     && apt-get install -y vim rsync htop screen
+
+RUN cd /workspace/ && git clone git@github.com:ronakrm/ronakrm-cloud-mgmt.git
+
 RUN sh /workspace/ronakrm-cloud-mgmt/scripts/runpod-git.sh
 RUN sh /workspace/ronakrm-cloud-mgmt/scripts/envs-vars.sh
 
