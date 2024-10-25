@@ -23,6 +23,8 @@ asdf install python 3.12.4
 asdf global python 3.11.3
 
 curl -sSf https://rye.astral.sh/get | RYE_INSTALL_OPTION="--yes" bash
+export PATH=$PATH:/root/.rye/env
+
 
 # git setup
 sh /workspace/ronakrm-cloud-mgmt/scripts/runpod-git.sh
