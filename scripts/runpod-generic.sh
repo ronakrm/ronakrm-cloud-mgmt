@@ -4,11 +4,10 @@ apt-get install locales
 
 locale-gen en_US.UTF-8
 update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
-apt-get install -y language-pack-en
 
 curl -sSL https://raw.githubusercontent.com/alacritty/alacritty/master/extra/alacritty.info | tic -x -
 
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.1
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 
 . "$HOME/.asdf/asdf.sh"
 echo '. $HOME/.asdf/asdf.sh"' >> ~/.bashrc
@@ -23,11 +22,11 @@ asdf install python 3.12.4
 asdf global python 3.11.3
 
 curl -sSf https://rye.astral.sh/get | RYE_INSTALL_OPTION="--yes" bash
-export PATH=$PATH:/root/.rye/env
+. /root/.rye/env
 
 
 # git setup
 sh /workspace/ronakrm-cloud-mgmt/scripts/runpod-git.sh
 
-# huggingface cache
-sh /workspace/ronakrm-cloud-mgmt/scripts/env-vars.sh
+# hf cache, path dirs
+. /workspace/ronakrm-cloud-mgmt/scripts/env-vars.sh
