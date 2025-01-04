@@ -6,12 +6,20 @@
 
 apt-get update && apt-get install -y vim rsync htop screen sudo curl git
 
+apt-get install locales
+
+locale-gen en_US.UTF-8
+update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+
+curl -sSL https://raw.githubusercontent.com/alacritty/alacritty/master/extra/alacritty.info | tic -x -
+
 # install asdf and asdf poetry globally
 # Install asdf under /opt/asdf for system-wide access
-ASDF_DIR=/opt/asdf
+ASDF_DIR=/workspace/.asdf
 
-cd /workspace/
 git clone https://github.com/asdf-vm/asdf.git ${ASDF_DIR} --branch v0.15.0
+
+. "${ASDF_DIR}/asdf.sh"
 
 # Add asdf.sh to system-wide profile
 echo ". ${ASDF_DIR}/asdf.sh" > /etc/profile.d/asdf.sh
