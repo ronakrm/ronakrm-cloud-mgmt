@@ -7,23 +7,8 @@ update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 curl -sSL https://raw.githubusercontent.com/alacritty/alacritty/master/extra/alacritty.info | tic -x -
 
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-
-. "$HOME/.asdf/asdf.sh"
-echo '. $HOME/.asdf/asdf.sh"' >> ~/.bashrc
-echo '. "$HOME/.asdf/completions/asdf.bash"' >> ~/.bashrc
-
-asdf plugin add python
-asdf plugin add poetry
-
-asdf install python 3.11.3
-asdf install python 3.12.4
-
-asdf global python 3.11.3
-
-curl -sSf https://rye.astral.sh/get | RYE_INSTALL_OPTION="--yes" bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
 . /root/.rye/env
-
 
 # git setup
 sh /workspace/ronakrm-cloud-mgmt/scripts/runpod-git.sh
